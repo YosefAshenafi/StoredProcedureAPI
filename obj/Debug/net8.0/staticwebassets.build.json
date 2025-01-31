@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Y9EC6t8qKE0hTQvMFAvs2f0uF4FTAmkUHwD8MM9XT5Y=",
+  "Source": "StoredProcedureAPI",
+  "BasePath": "_content/StoredProcedureAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
