@@ -18,12 +18,12 @@ namespace StoredProcedureAPI.Repositories
         public async Task<IEnumerable<StoredProcedureInfo>> GetAvailableStoredProceduresAsync()
         {
             const string sql = @"
-                SELECT 
+                SELECT DISTINCT
                     p.SPECIFIC_NAME as Name,
                     COALESCE(s.is_public, true) as IsPublic,
                     COALESCE(s.created_date, NOW()) as CreatedDate
                 FROM information_schema.ROUTINES p
-                LEFT JOIN stored_procedure_settings s ON p.SPECIFIC_NAME = s.procedure_name
+                INNER JOIN stored_procedure_settings s ON p.SPECIFIC_NAME = s.procedure_name
                 WHERE p.ROUTINE_SCHEMA = @databaseName
                 AND p.ROUTINE_TYPE = 'PROCEDURE'";
     
