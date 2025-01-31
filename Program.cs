@@ -1,10 +1,12 @@
 using StoredProcedureAPI.Models;
 using StoredProcedureAPI.Repositories;
+using StoredProcedureAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews()
+    .AddRazorRuntimeCompilation(); // Add this for runtime compilation of Razor views
 
 // Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
@@ -33,11 +35,10 @@ builder.Services.AddSingleton(databaseSettings);
 
 // Register repository
 builder.Services.AddScoped<IStoredProcedureRepository, StoredProcedureRepository>();
+builder.Services.AddScoped<IStoredProcedureService, StoredProcedureService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-// Update the exception handler configuration
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -45,29 +46,26 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Stored Procedure API V1");
+        c.InjectStylesheet("/swagger-ui/custom.css");
+        c.InjectJavascript("/swagger-ui/custom.js");
     });
 }
-else
-{
-    app.UseExceptionHandler(new ExceptionHandlerOptions
-    {
-        AllowStatusCode404Response = true,
-        ExceptionHandler = async context =>
-        {
-            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-            await context.Response.WriteAsJsonAsync(new { error = "An error occurred processing your request." });
-        }
-    });
-    app.UseHsts();
-}
+app.UseStaticFiles(); // Add this to serve static files
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthorization();
-app.MapControllers();
+
+// Configure endpoints
+app.MapControllers(); // Add this for API controllers
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=StoredProcedure}/{action=Index}/{id?}");
 
 app.Run();
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
+
+
 

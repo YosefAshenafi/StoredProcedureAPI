@@ -1,0 +1,22 @@
+.topbar {
+    padding: 8px 0;
+}
+
+.topbar-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.custom-nav-link {
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin-left: 16px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.1);
+}
+
+.custom-nav-link:hover {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+}

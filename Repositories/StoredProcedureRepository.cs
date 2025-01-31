@@ -38,9 +38,8 @@ namespace StoredProcedureAPI.Repositories
         public async Task<bool> UpdateStoredProcedureVisibilityAsync(string procedureName, bool isPublic)
         {
             const string sql = @"
-                INSERT INTO stored_procedure_settings (procedure_name, is_public)
-                VALUES (@name, @isPublic)
-                ON DUPLICATE KEY UPDATE is_public = @isPublic";
+                UPDATE stored_procedure_settings set is_public = @isPublic 
+                WHERE procedure_name = @name";
     
             using (var connection = new MySqlConnection(_connectionString))
             {

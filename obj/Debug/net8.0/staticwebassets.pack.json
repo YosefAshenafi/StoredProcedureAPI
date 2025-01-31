@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/swagger-ui/custom.css",
+      "PackagePath": "staticwebassets/swagger-ui/custom.css"
+    },
+    {
+      "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/swagger-ui/custom.js",
+      "PackagePath": "staticwebassets/swagger-ui/custom.js"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.StoredProcedureAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.StoredProcedureAPI.props",
+      "PackagePath": "build\\StoredProcedureAPI.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.StoredProcedureAPI.props",
+      "PackagePath": "buildMultiTargeting\\StoredProcedureAPI.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.StoredProcedureAPI.props",
+      "PackagePath": "buildTransitive\\StoredProcedureAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

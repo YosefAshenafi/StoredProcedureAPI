@@ -1,11 +1,58 @@
 {
   "Version": 1,
-  "Hash": "Y9EC6t8qKE0hTQvMFAvs2f0uF4FTAmkUHwD8MM9XT5Y=",
+  "Hash": "BCkGnRb6Q0OEIIoX1HOPYmh5UG7xmwLFDZeoRo0OCmM=",
   "Source": "StoredProcedureAPI",
   "BasePath": "_content/StoredProcedureAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "StoredProcedureAPI/wwwroot",
+      "Source": "StoredProcedureAPI",
+      "ContentRoot": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/",
+      "BasePath": "_content/StoredProcedureAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/swagger-ui/custom.css",
+      "SourceId": "StoredProcedureAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/",
+      "BasePath": "_content/StoredProcedureAPI",
+      "RelativePath": "swagger-ui/custom.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/swagger-ui/custom.css"
+    },
+    {
+      "Identity": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/swagger-ui/custom.js",
+      "SourceId": "StoredProcedureAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/",
+      "BasePath": "_content/StoredProcedureAPI",
+      "RelativePath": "swagger-ui/custom.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/swagger-ui/custom.js"
+    }
+  ]
 }
