@@ -19,12 +19,19 @@ public class DynamicApiController : ControllerBase
     public async Task<IActionResult> GetAvailableProcedures()
     {
         var procedures = await _repository.GetAvailableStoredProceduresAsync();
-        return Ok(procedures);
+        var publicProcedures = procedures.Where(p => p.IsPublic);
+        return Ok(publicProcedures);
     }
 
     [HttpPost("procedures/{procedureName}/visibility")]
     public async Task<IActionResult> UpdateProcedureVisibility(string procedureName, [FromBody] bool isPublic)
     {
+        var procedures = await _repository.GetAvailableStoredProceduresAsync();
+        var procInfo = procedures.FirstOrDefault(p => p.Name.Equals(procedureName, StringComparison.OrdinalIgnoreCase));
+        
+        if (procInfo == null || !procInfo.IsPublic)
+            return Ok(new { });  // Return empty object instead of error
+
         var result = await _repository.UpdateStoredProcedureVisibilityAsync(procedureName, isPublic);
         _procedureCache.AddOrUpdate(procedureName, isPublic, (_, _) => isPublic);
         return Ok(result);
@@ -38,13 +45,10 @@ public class DynamicApiController : ControllerBase
         {
             var procedures = await _repository.GetAvailableStoredProceduresAsync();
             var procInfo = procedures.FirstOrDefault(p => p.Name.Equals(procedureName, StringComparison.OrdinalIgnoreCase));
-    
-            if (procInfo == null)
-                return NotFound($"Stored procedure '{procedureName}' not found.");
-    
-            if (!procInfo.IsPublic)
-                return Forbid($"Stored procedure '{procedureName}' is not publicly accessible.");
-    
+
+            if (procInfo == null || !procInfo.IsPublic)
+                return Ok(new { });
+
             // Convert parameters based on procedure name
             object procParams;
             if (procedureName.Equals("GetHeroSectionByDate", StringComparison.OrdinalIgnoreCase))
@@ -56,7 +60,7 @@ public class DynamicApiController : ControllerBase
                 }
                 else
                 {
-                    return BadRequest("Invalid date format");
+                    return Ok(new { });  // Return empty for invalid date
                 }
             }
             else
@@ -68,9 +72,9 @@ public class DynamicApiController : ControllerBase
             var result = await _repository.ExecuteStoredProcedureAsync<dynamic>(procedureName, procParams);
             return Ok(result);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            return BadRequest(ex.Message);
+            return Ok(new { });  // Return empty for any errors
         }
     }
 }

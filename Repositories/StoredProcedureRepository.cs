@@ -8,6 +8,20 @@ namespace StoredProcedureAPI.Repositories
 {
     public class StoredProcedureRepository : IStoredProcedureRepository
     {
+        // Add a method to check SP status
+        public async Task<bool> IsStoredProcedurePublic(string procedureName)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                var query = @"SELECT is_public FROM stored_procedure_settings 
+                             WHERE procedure_name = @ProcedureName";
+                
+                var result = await connection.QueryFirstOrDefaultAsync<bool?>(query, 
+                    new { ProcedureName = procedureName });
+                
+                return result ?? false; // If no setting exists, consider it private
+            }
+        }
         private readonly string _connectionString;
 
         public StoredProcedureRepository(DatabaseSettings settings)
