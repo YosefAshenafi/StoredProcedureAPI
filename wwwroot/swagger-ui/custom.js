@@ -11,7 +11,7 @@
             const link = document.createElement('a');
             link.href = '/StoredProcedure';
             link.className = 'custom-nav-link';
-            link.innerHTML = '← Stored Procedures UI';
+            link.innerHTML = '← Stored Procedures';
             link.style.marginLeft = '20px';
             topbarWrapper.appendChild(link);
         }
