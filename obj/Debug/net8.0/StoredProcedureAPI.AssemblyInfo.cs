@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StoredProcedureAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+099159e3de0370c199c9ea9a9ebcefd0b5a71056")]
 [assembly: System.Reflection.AssemblyProductAttribute("StoredProcedureAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StoredProcedureAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
