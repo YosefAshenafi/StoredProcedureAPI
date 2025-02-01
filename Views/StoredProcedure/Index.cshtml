@@ -35,7 +35,7 @@
                                 <td class="px-4">
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-code-square text-primary me-2"></i>
-                                        <a class="text-decoration-none text-dark" 
+                                        <a class="text-decoration-none text-dark sp-name" 
                                            data-bs-toggle="collapse" 
                                            href="#collapse_@item.Name.Replace(".", "_")" 
                                            role="button" 
@@ -259,6 +259,9 @@
         .collapse.show {
             background-color: #1a1a1a !important;
         }
+        .sp-row.selected .sp-name {
+            font-weight: 600;
+        }
     </style>
     
     <script>
@@ -277,9 +280,15 @@
         document.addEventListener('DOMContentLoaded', function() {
             const spRows = document.querySelectorAll('.sp-row');
             spRows.forEach(row => {
-                row.querySelector('a[data-bs-toggle="collapse"]').addEventListener('click', function() {
-                    spRows.forEach(r => r.classList.remove('selected'));
-                    row.classList.add('selected');
+                const link = row.querySelector('a[data-bs-toggle="collapse"]');
+                link.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    if (isExpanded) {
+                        spRows.forEach(r => r.classList.remove('selected'));
+                        row.classList.add('selected');
+                    } else {
+                        row.classList.remove('selected');
+                    }
                 });
             });
         });
