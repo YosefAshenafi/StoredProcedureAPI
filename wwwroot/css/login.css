@@ -1,56 +1,71 @@
 .login-container {
     min-height: 100vh;
     background-color: #f8f9fa;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
 }
 
 .illustration-section {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 2rem;
-}
-
-.welcome-text {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
-.highlight {
-    color: #f4811f;
-    font-weight: bold;
+    background-color: #fff;
+    border-bottom: 3px solid #f4811f;
 }
 
 .api-illustration {
-    max-width: 60%;  /* changed from 80% to 60% */
+    max-width: 40%;
     height: auto;
-    margin: 2rem auto;
+    margin: 1rem auto;
     animation: float 6s ease-in-out infinite;
 }
 
 .login-form-container {
-    background: white;
+    flex: 1;
+    background: #fff;
     padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     animation: slideIn 0.5s ease-out;
-    max-width: 400px;  /* added max-width */
-    margin: 0 auto;    /* added margin */
+    max-width: none;
+    margin: 0;
+    border-top: 1px solid #e1e1e1;
 }
 
 .input-animated {
-    border: none;
-    border-bottom: 2px solid #e1e1e1;
+    background-color: #f8f9fa;
+    border: 1px solid #e1e1e1;
     border-radius: 0;
-    padding: 0.75rem 0;
+    padding: 1rem;
     margin-bottom: 1.5rem;
     transition: all 0.3s;
 }
 
 .input-animated:focus {
-    border-bottom-color: #f4811f;
-    box-shadow: none;
+    border-color: #f4811f;
+    box-shadow: 0 2px 0 0 #f4811f;
+}
+
+.btn-login {
+    background: #f4811f;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0;
+    width: 100%;
+    margin: 1.5rem 0;
+    transition: all 0.3s;
+}
+
+.login-form-inner {
+    max-width: 450px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 1rem;
 }
 
 .remember-forgot {
@@ -58,16 +73,6 @@
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
-}
-
-.btn-login {
-    background: #f4811f;
-    color: white;
-    padding: 0.75rem;
-    border-radius: 50px;
-    width: 100%;
-    margin: 1.5rem 0;
-    transition: all 0.3s;
 }
 
 .btn-login:hover {
@@ -109,6 +114,6 @@
 }
 
 @keyframes slideIn {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
