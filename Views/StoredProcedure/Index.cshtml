@@ -71,15 +71,16 @@
                                         <div class="card card-body border-0 bg-dark">
                                             <div class="row g-4">
                                                 <div class="col-md-6">
-                                                    <div class="code-block">
-                                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                                            <h6 class="mb-0">
-                                                                <i class="bi bi-arrow-right-square me-2"></i>Request Body
-                                                            </h6>
-                                                            <span class="badge bg-secondary">POST</span>
-                                                        </div>
-                                                        <div class="json-editor">
-                                                            <pre class="mb-0"><code>
+                                                    <div class="code-block-container">
+                                                        <div class="code-block">
+                                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                                <h6 class="mb-0">
+                                                                    <i class="bi bi-arrow-right-square me-2"></i>Request Body
+                                                                </h6>
+                                                                <span class="badge bg-secondary">POST</span>
+                                                            </div>
+                                                            <div class="json-editor">
+                                                                <pre class="mb-0"><code>
 {
     "startDate": "2023-12-01",
     "endDate": "2023-12-31",
@@ -90,19 +91,21 @@
     "sortBy": "orderDate",
     "sortDirection": "DESC"
 }</code></pre>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="code-block">
-                                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                                            <h6 class="mb-0">
-                                                                <i class="bi bi-arrow-left-square me-2"></i>Response
-                                                            </h6>
-                                                            <span class="badge bg-success">200 OK</span>
-                                                        </div>
-                                                        <div class="json-editor">
-                                                            <pre class="mb-0"><code>
+                                                    <div class="code-block-container">
+                                                        <div class="code-block">
+                                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                                <h6 class="mb-0">
+                                                                    <i class="bi bi-arrow-left-square me-2"></i>Response
+                                                                </h6>
+                                                                <span class="badge bg-success">200 OK</span>
+                                                            </div>
+                                                            <div class="json-editor">
+                                                                <pre class="mb-0"><code>
 {
     "totalRecords": 150,
     "pageCount": 15,
@@ -122,6 +125,7 @@
         "averageOrderValue": 1250.75
     }
 }</code></pre>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -186,9 +190,10 @@
             padding: 1rem;
             color: #d4d4d4;
             position: relative;
-            resize: vertical;
+            resize: both; /* Changed from vertical to both */
             overflow: auto;
             min-height: 200px;
+            min-width: 300px;
             max-height: 600px;
         }
         
@@ -197,8 +202,27 @@
             border-radius: 4px;
             padding: 1rem;
             font-family: 'Consolas', 'Monaco', monospace;
-            overflow-x: auto;
+            overflow: auto;
             height: 100%;
+            width: 100%;
+        }
+        
+        /* Update the resize handle style */
+        .resize-handle {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 15px;
+            height: 15px;
+            cursor: nw-resize;
+            background: linear-gradient(135deg, transparent 40%, #4a4a4a 40%);
+            border-radius: 0 0 6px 0;
+        }
+        
+        /* Add this new style to handle container responsiveness */
+        .code-block-container {
+            overflow: auto;
+            padding: 1px;
         }
         
         // Add this new style
