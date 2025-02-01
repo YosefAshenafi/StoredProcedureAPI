@@ -185,10 +185,11 @@
             border-radius: 6px;
             padding: 1rem;
             color: #d4d4d4;
-        }
-        
-        .code-block h6 {
-            color: #ffffff;
+            position: relative;
+            resize: vertical;
+            overflow: auto;
+            min-height: 200px;
+            max-height: 600px;
         }
         
         .json-editor {
@@ -197,6 +198,19 @@
             padding: 1rem;
             font-family: 'Consolas', 'Monaco', monospace;
             overflow-x: auto;
+            height: 100%;
+        }
+        
+        // Add this new style
+        .resize-handle {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            cursor: se-resize;
+            background: linear-gradient(135deg, transparent 50%, #4a4a4a 50%);
+            border-radius: 0 0 6px 0;
         }
         
         .json-editor pre {
@@ -225,6 +239,17 @@
     
     <script>
         // Add this new function
+        document.addEventListener('DOMContentLoaded', function() {
+            const spRows = document.querySelectorAll('.sp-row');
+            spRows.forEach(row => {
+                row.querySelector('a[data-bs-toggle="collapse"]').addEventListener('click', function() {
+                    spRows.forEach(r => r.classList.remove('selected'));
+                    row.classList.add('selected');
+                });
+            });
+        });
+    </script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const spRows = document.querySelectorAll('.sp-row');
             spRows.forEach(row => {
