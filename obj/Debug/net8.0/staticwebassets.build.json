@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BCkGnRb6Q0OEIIoX1HOPYmh5UG7xmwLFDZeoRo0OCmM=",
+  "Hash": "3TZJ0Rfl/pd6yEGKbCQtwfH/QCd/hyzW33iLrm6Cha4=",
   "Source": "StoredProcedureAPI",
   "BasePath": "_content/StoredProcedureAPI",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/css/storedProcedure.css",
+      "SourceId": "StoredProcedureAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/",
+      "BasePath": "_content/StoredProcedureAPI",
+      "RelativePath": "css/storedProcedure.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/storedProcedure.css"
+    },
     {
       "Identity": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/swagger-ui/custom.css",
       "SourceId": "StoredProcedureAPI",

@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/css/storedProcedure.css",
+      "PackagePath": "staticwebassets/css/storedProcedure.css"
+    },
+    {
       "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/swagger-ui/custom.css",
       "PackagePath": "staticwebassets/swagger-ui/custom.css"
     },

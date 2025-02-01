@@ -13,6 +13,9 @@
         <div class="card-header bg-white">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="mb-0"><i class="bi bi-plug me-2"></i>Endpoints</h3>
+                <div class="input-group mx-3" style="max-width: 400px;">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+                </div>
                 <div class="btn-group">
                     <a href="/swagger" class="btn btn-outline-secondary">
                         <i class="bi bi-braces me-2"></i>Swagger
@@ -160,6 +163,26 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const spRows = document.querySelectorAll('.sp-row');
+                
+                spRows.forEach(row => {
+                    const spName = row.querySelector('.sp-name').textContent.toLowerCase();
+                    const nextRow = row.nextElementSibling;
+                    
+                    if (spName.includes(searchTerm)) {
+                        row.style.display = '';
+                        if (nextRow) nextRow.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                        if (nextRow) nextRow.style.display = 'none';
+                    }
+                });
+            });
+
             const spRows = document.querySelectorAll('.sp-row');
             spRows.forEach(row => {
                 const link = row.querySelector('a[data-bs-toggle="collapse"]');
