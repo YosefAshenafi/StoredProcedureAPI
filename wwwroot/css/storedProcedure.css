@@ -1,0 +1,102 @@
+.parameter-tree {
+    font-size: 0.9rem;
+}
+
+.parameter-item {
+    margin-bottom: 0.5rem;
+}
+
+.bi-circle-fill {
+    font-size: 0.5rem;
+}
+
+.collapse {
+    background-color: #f8f9fa;
+}
+
+.sp-row.selected {
+    background-color: #e8f4ff !important;
+}
+
+.sp-row.selected + tr .collapse.show {
+    background-color: #f8fbff !important;
+    box-shadow: inset 0 3px 6px -3px rgba(0,0,0,0.1);
+}
+
+.sp-row:hover {
+    background-color: #f8f9fa;
+}
+
+.code-block {
+    background-color: #1e1e1e;
+    border-radius: 6px;
+    padding: 1rem;
+    color: #d4d4d4;
+    position: relative;
+    resize: both;
+    overflow: auto;
+    min-height: 200px;
+    min-width: 300px;
+    max-height: 600px;
+}
+
+.json-editor {
+    background-color: #252526;
+    border-radius: 4px;
+    padding: 1rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    cursor: se-resize;
+    background: linear-gradient(135deg, transparent 50%, #4a4a4a 50%);
+    border-radius: 0 0 6px 0;
+}
+
+.code-block-container {
+    overflow: auto;
+    padding: 1px;
+}
+
+.json-editor pre {
+    color: #d4d4d4;
+    margin: 0;
+    white-space: pre-wrap;
+    tab-size: 4;
+}
+
+.json-editor code {
+    color: inherit;
+    display: block;
+    tab-size: 4;
+}
+
+.badge {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+}
+
+.collapse.show {
+    background-color: #1a1a1a !important;
+}
+
+.sp-row.selected .sp-name {
+    font-weight: 600;
+}
+
+#checkbox_GetHeroSectionByDate {
+    font-size: 25px;
+    border: 3px solid lightgray;
+}
+.navbar-panel {
+    background-color: #658097 !important;
+}
