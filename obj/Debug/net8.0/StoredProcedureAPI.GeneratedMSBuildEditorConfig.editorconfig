@@ -18,8 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = /Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/Views/StoredProcedure/Details.cshtml]

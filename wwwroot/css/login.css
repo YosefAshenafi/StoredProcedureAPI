@@ -1,0 +1,114 @@
+.login-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 2rem;
+}
+
+.illustration-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.welcome-text {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.highlight {
+    color: #f4811f;
+    font-weight: bold;
+}
+
+.api-illustration {
+    max-width: 60%;  /* changed from 80% to 60% */
+    height: auto;
+    margin: 2rem auto;
+    animation: float 6s ease-in-out infinite;
+}
+
+.login-form-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    animation: slideIn 0.5s ease-out;
+    max-width: 400px;  /* added max-width */
+    margin: 0 auto;    /* added margin */
+}
+
+.input-animated {
+    border: none;
+    border-bottom: 2px solid #e1e1e1;
+    border-radius: 0;
+    padding: 0.75rem 0;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s;
+}
+
+.input-animated:focus {
+    border-bottom-color: #f4811f;
+    box-shadow: none;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.btn-login {
+    background: #f4811f;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 50px;
+    width: 100%;
+    margin: 1.5rem 0;
+    transition: all 0.3s;
+}
+
+.btn-login:hover {
+    background: #e67012;
+    transform: translateY(-2px);
+}
+
+.social-login {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-social {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.btn-facebook { background: #3b5998; color: white; }
+.btn-twitter { background: #1da1f2; color: white; }
+.btn-github { background: #333; color: white; }
+.btn-google { background: #db4437; color: white; }
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
