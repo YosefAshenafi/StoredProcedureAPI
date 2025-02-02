@@ -87,6 +87,11 @@
                                                                 </h6>
                                                             </div>
                                                             <div class="json-editor">
+                                                                <div class="loading-spinner d-none">
+                                                                    <div class="spinner-border text-light" role="status">
+                                                                        <span class="visually-hidden">Loading...</span>
+                                                                    </div>
+                                                                </div>
                                                                 <pre class="mb-0"><code id="parameters_@item.Name"></code></pre>
                                                             </div>
                                                         </div>
@@ -102,6 +107,11 @@
                                                                 <span class="badge bg-success">200 OK</span>
                                                             </div>
                                                             <div class="json-editor">
+                                                                <div class="loading-spinner d-none">
+                                                                    <div class="spinner-border text-light" role="status">
+                                                                        <span class="visually-hidden">Loading...</span>
+                                                                    </div>
+                                                                </div>
                                                                 <pre class="mb-0"><code id="response_@item.Name"></code></pre>
                                                             </div>
                                                         </div>
@@ -166,6 +176,10 @@
                         spRows.forEach(r => r.classList.remove('selected'));
                         row.classList.add('selected');
                         
+                        // Show loading spinners
+                        const spinners = row.nextElementSibling.querySelectorAll('.loading-spinner');
+                        spinners.forEach(spinner => spinner.classList.remove('d-none'));
+                        
                         try {
                             const response = await fetch(`/api/dynamicApi/procedures/${procedureName}/details`);
                             if (!response.ok) {
@@ -207,6 +221,9 @@
                             if (responseElement) {
                                 responseElement.textContent = 'Error loading response';
                             }
+                        } finally {
+                            // Hide loading spinners
+                            spinners.forEach(spinner => spinner.classList.add('d-none'));
                         }
                     } else {
                         row.classList.remove('selected');
