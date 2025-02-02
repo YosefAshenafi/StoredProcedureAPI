@@ -99,3 +99,21 @@
 .navbar-panel {
     background-color: #658097 !important;
 }
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+}
+
+.custom-toast {
+    background-color: #fff;
+    border-left: 4px solid #28a745;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.custom-toast.show {
+    opacity: 1;
+}

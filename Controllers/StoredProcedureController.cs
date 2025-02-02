@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using StoredProcedureAPI.Services;
 
@@ -29,6 +30,7 @@ namespace StoredProcedureAPI.Controllers
         procedureName, isPublic);
 
             await _storedProcedureService.UpdateStoredProcedureVisibilityAsync(procedureName, isPublic);
+            TempData["Notification"] = JsonSerializer.Serialize(new { procedureName, visibility = isPublic });
             return RedirectToAction(nameof(Index));
         }
 
