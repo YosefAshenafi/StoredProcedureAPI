@@ -35,7 +35,6 @@
     position: relative;
     resize: both;
     overflow: auto;
-    min-height: 200px;
     min-width: 300px;
     max-height: 600px;
 }
