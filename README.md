@@ -1,32 +1,40 @@
 # Stored Procedure API
 
+A .NET Core Web API application that exposes SQL Server stored procedures as REST API endpoints, enabling seamless integration with web applications, mobile apps, and other API consumers.
+
 ## Overview
-This project aims to expose stored procedures as API endpoints, enabling seamless integration with mobile and other applications. By simply updating or creating stored procedures (SPs), developers can access them via API endpoints without additional backend implementation, reducing development time and complexity.
+
+This API service acts as a bridge between your database stored procedures and client applications, allowing you to:
+- Access database stored procedures through HTTP endpoints
+- Convert stored procedures into RESTful APIs automatically
+- Integrate with any client application that can make HTTP requests
+- Maintain security and control over database access
 
 ## Features
-- Automatic API generation for stored procedures.
-- Simplified backend management.
-- Supports multiple applications (mobile, web, etc.).
-- Secure and efficient data handling.
 
-## Installation
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-repo/stored-procedure-api.git
-   ```
-2. Navigate to the project directory:
-   ```sh
-   cd stored-procedure-api
-   ```
-3. Install dependencies:
-   ```sh
-   npm install  # If using Node.js
-   ```
-   or
-   ```sh
-   dotnet restore  # If using .NET
-   ```
-4. Set up your database connection in the configuration file.
+- Automatic API endpoint generation for stored procedures
+- Flexible parameter handling
+- JSON response formatting
+- Swagger/OpenAPI documentation
+- Built-in security and authentication
+- Cross-platform compatibility
+
+## Prerequisites
+
+- .NET 6.0 SDK or later
+- SQL Server (2016 or later)
+- Visual Studio 2022 or VS Code
+
+## Configuration
+
+1. Set up your database connection in `appsettings.json`:
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Your_Connection_String_Here"
+  }
+}
+```
 
 ## Usage
 1. Start the server:
