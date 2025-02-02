@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Concurrent;
 using StoredProcedureAPI.Repositories;
 using System.Text.Json;
+using StoredProcedureAPI.Models;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -77,4 +78,35 @@ public class DynamicApiController : ControllerBase
             return Ok(new { });  // Return empty for any errors
         }
     }
+
+[HttpGet("procedures/{procedureName}/details")]
+public async Task<IActionResult> GetProcedureDetails(string procedureName)
+{
+    try
+    {
+        var procedures = await _repository.GetAvailableStoredProceduresAsync();
+        var procInfo = procedures.FirstOrDefault(p => 
+            p.Name.Equals(procedureName, StringComparison.OrdinalIgnoreCase));
+
+        if (procInfo == null || !procInfo.IsPublic)
+            return NotFound();
+
+        var parameters = await _repository.GetStoredProcedureParametersAsync(procedureName);
+        var sampleResponse = await _repository.ExecuteStoredProcedureWithDefaultsAsync(procedureName);
+
+        var details = new StoredProcedureDetailModel
+        {
+            Name = procedureName,
+            Parameters = parameters,
+            SampleResponse = sampleResponse
+        };
+
+        return Ok(details);
+    }
+    catch (Exception ex)
+    {
+        // Log the error
+        return StatusCode(500, new { error = "An error occurred while fetching procedure details." });
+    }
+}
 }

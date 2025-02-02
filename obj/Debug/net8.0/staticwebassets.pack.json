@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets/images/bg/person.svg"
     },
     {
+      "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/js/procedureDetails.js",
+      "PackagePath": "staticwebassets/js/procedureDetails.js"
+    },
+    {
       "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/swagger-ui/custom.css",
       "PackagePath": "staticwebassets/swagger-ui/custom.css"
     },

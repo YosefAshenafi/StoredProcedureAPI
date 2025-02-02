@@ -82,5 +82,66 @@ namespace StoredProcedureAPI.Repositories
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+        public async Task<List<ParameterDetailInfo>> GetStoredProcedureParametersAsync(string procedureName)
+        {
+            const string sql = @"
+                SELECT 
+                    PARAMETER_NAME as Name,
+                    DATA_TYPE as DataType,
+                    PARAMETER_MODE as Mode
+                FROM INFORMATION_SCHEMA.PARAMETERS
+                WHERE SPECIFIC_SCHEMA = @databaseName
+                AND SPECIFIC_NAME = @procedureName
+                ORDER BY ORDINAL_POSITION";
+    
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                var parameters = await connection.QueryAsync<ParameterDetailInfo>(sql,
+                    new { databaseName = connection.Database, procedureName });
+                return parameters.ToList();
+            }
+        }
+
+        public async Task<object> ExecuteStoredProcedureWithDefaultsAsync(string procedureName)
+        {
+            var parameters = await GetStoredProcedureParametersAsync(procedureName);
+            var dynamicParams = new DynamicParameters();
+
+            // Set default values based on parameter types
+            foreach (var param in parameters)
+            {
+                object defaultValue = GetDefaultValueForType(param.DataType);
+                dynamicParams.Add(param.Name, defaultValue);
+            }
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                try
+                {
+                    var result = await connection.QueryAsync(procedureName, dynamicParams,
+                        commandType: System.Data.CommandType.StoredProcedure);
+                    return result.ToList();
+                }
+                catch (Exception)
+                {
+                    return new List<object>();
+                }
+            }
+        }
+
+        private object GetDefaultValueForType(string dataType)
+        {
+            return dataType.ToLower() switch
+            {
+                "varchar" or "char" or "text" => "sample",
+                "int" or "bigint" or "smallint" or "tinyint" => 1,
+                "decimal" or "float" or "double" => 1.0,
+                "datetime" or "timestamp" or "date" => DateTime.Now,
+                "bit" or "boolean" => false,
+                _ => DBNull.Value
+            };
+        }
     }
 }
