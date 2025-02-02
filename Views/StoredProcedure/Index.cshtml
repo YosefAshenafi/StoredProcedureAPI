@@ -83,7 +83,7 @@
                                                         <div class="code-block">
                                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                                 <h6 class="mb-0">
-                                                                    <i class="bi bi-arrow-right-square me-2"></i>Parameters
+                                                                    <i class="bi bi-arrow-right-square me-2"></i>Details
                                                                 </h6>
                                                             </div>
                                                             <div class="json-editor">
@@ -102,7 +102,7 @@
                                                         <div class="code-block">
                                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                                 <h6 class="mb-0">
-                                                                    <i class="bi bi-arrow-left-square me-2"></i>Sample Response
+                                                                    <i class="bi bi-arrow-right-square me-2"></i>Sample Request
                                                                 </h6>
                                                                 <span class="badge bg-success">200 OK</span>
                                                             </div>
@@ -190,7 +190,6 @@
                             // Format and display parameters
                             const paramId = `parameters_${procedureName}`;
                             const parametersElement = document.getElementById(paramId);
-                            console.log('Looking for element with ID:', paramId); // Debug log
                             
                             if (parametersElement && data.parameters) {
                                 const formattedParams = {};
@@ -201,18 +200,21 @@
                                     };
                                 });
                                 parametersElement.textContent = JSON.stringify(formattedParams, null, 2);
-                            } else {
-                                console.error('Element not found or no parameters:', paramId);
                             }
 
                             // Format and display sample response
                             const responseElement = document.getElementById(`response_${procedureName.replace(/\./g, '_')}`);
-                            if (responseElement) {
-                                responseElement.textContent = JSON.stringify(data.sampleResponse, null, 2);
+                            if (responseElement && data.parameters) {
+                                const sampleRequest = {};
+                                data.parameters.forEach(p => {
+                                    if (p.mode.toUpperCase() === 'IN') {
+                                        sampleRequest[p.name] = getSampleValue(p.dataType);
+                                    }
+                                });
+                                responseElement.textContent = JSON.stringify(sampleRequest, null, 2);
                             }
                         } catch (error) {
                             console.error('Error fetching procedure details:', error);
-                            // Show error in the UI
                             const parametersElement = document.getElementById(`parameters_${procedureName.replace(/\./g, '_')}`);
                             const responseElement = document.getElementById(`response_${procedureName.replace(/\./g, '_')}`);
                             if (parametersElement) {
@@ -229,6 +231,33 @@
                         row.classList.remove('selected');
                     }
                 });
+
+                function getSampleValue(dataType) {
+                    switch (dataType.toLowerCase()) {
+                        case 'varchar':
+                        case 'char':
+                        case 'text':
+                            return "sample_text";
+                        case 'int':
+                        case 'bigint':
+                        case 'smallint':
+                        case 'tinyint':
+                            return 0;
+                        case 'decimal':
+                        case 'float':
+                        case 'double':
+                            return 0.0;
+                        case 'datetime':
+                        case 'timestamp':
+                        case 'date':
+                            return "2024-01-01";
+                        case 'bit':
+                        case 'boolean':
+                            return false;
+                        default:
+                            return "";
+                    }
+                }
             });
         });
     </script>
