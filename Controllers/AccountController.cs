@@ -18,7 +18,7 @@ namespace StoredProcedureAPI.Controllers
             {
                 // Add your authentication logic here
                 // For now, this is just a placeholder
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "StoredProcedure");
             }
 
             return View(model);

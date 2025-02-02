@@ -56,7 +56,7 @@ public class DynamicApiController : ControllerBase
                 var dateStr = parameters.GetProperty("p_created_date").GetString();
                 if (DateTime.TryParse(dateStr, out DateTime date))
                 {
-                    procParams = new { p_created_date = date.Date };
+                    procParams = new { p_created_date = date };  // Remove .Date to preserve time component
                 }
                 else
                 {

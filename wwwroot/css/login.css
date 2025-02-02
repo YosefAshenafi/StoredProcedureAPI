@@ -1,6 +1,4 @@
 .login-container {
-    min-height: 100vh;
-    background-color: #f8f9fa;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -34,7 +32,6 @@
     animation: slideIn 0.5s ease-out;
     max-width: none;
     margin: 0;
-    border-top: 1px solid #e1e1e1;
 }
 
 .input-animated {

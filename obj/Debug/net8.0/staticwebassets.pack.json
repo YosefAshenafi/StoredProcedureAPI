@@ -1,8 +1,24 @@
 {
   "Files": [
     {
+      "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/css/login.css",
+      "PackagePath": "staticwebassets/css/login.css"
+    },
+    {
       "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/css/storedProcedure.css",
       "PackagePath": "staticwebassets/css/storedProcedure.css"
+    },
+    {
+      "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/images/bg/api.jpg",
+      "PackagePath": "staticwebassets/images/bg/api.jpg"
+    },
+    {
+      "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/images/bg/endpoints.svg",
+      "PackagePath": "staticwebassets/images/bg/endpoints.svg"
+    },
+    {
+      "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/images/bg/person.svg",
+      "PackagePath": "staticwebassets/images/bg/person.svg"
     },
     {
       "Id": "/Users/yosef/Documents/Projects/TRAE/StoredProcedureAPI/wwwroot/swagger-ui/custom.css",
